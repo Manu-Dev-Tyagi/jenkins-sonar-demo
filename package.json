@@ -1,0 +1,12 @@
+{
+  "name": "jenkins-sonar-demo",
+  "version": "1.0.0",
+  "description": "Simple Node.js app for Jenkins and SonarQube pipeline testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Running tests...\" && node test/sample.test.js",
+    "build": "echo \"Building the project...\" && echo 'Build complete!'"
+  },
+  "author": "Manu Tyagi",
+  "license": "MIT"
+}
