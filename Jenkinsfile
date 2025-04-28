@@ -2,11 +2,7 @@ pipeline {
     agent any
 
     tools {
-        sonarQubeScanner 'DefaultScanner'
-    }
-
-    environment {
-        SONARQUBE = credentials('sonar-token')
+        sonarQubeScanner 'sonar-scanner'
     }
 
     stages {
@@ -31,7 +27,12 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('LocalSonarQube') {
-                    sh 'sonar-scanner'
+                    sh '''
+                      sonar-scanner \
+                      -Dsonar.projectKey=jenkins-sonar-demo \
+                      -Dsonar.sources=. \
+                      -Dsonar.host.url=http://localhost:9000
+                    '''
                 }
             }
         }
